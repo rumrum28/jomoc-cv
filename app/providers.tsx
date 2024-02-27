@@ -1,25 +1,32 @@
 'use client'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { useEffect, useState } from 'react'
-import Loading from './loading'
-import { ThemeProvider as NextThemesProvider } from 'next-themes'
-import { type ThemeProviderProps } from 'next-themes/dist/types'
 
-export default function Providers({ children, ...props }: ThemeProviderProps) {
-  const [queryClient] = useState(() => new QueryClient())
-  const [mounted, setMounted] = useState(false)
+function makeQueryClient() {
+  return new QueryClient({
+    defaultOptions: {
+      queries: {
+        staleTime: 60 * 1000,
+      },
+    },
+  })
+}
 
-  useEffect(() => {
-    setMounted(true)
-  }, [setMounted])
+let browserQueryClient: QueryClient | undefined = undefined
+
+function getQueryClient() {
+  if (typeof window === 'undefined') {
+    return makeQueryClient()
+  } else {
+    if (!browserQueryClient) browserQueryClient = makeQueryClient()
+    return browserQueryClient
+  }
+}
+
+export default function Providers({ children }: { children: React.ReactNode }) {
+  const queryClient = getQueryClient()
 
   return (
-    <QueryClientProvider client={queryClient}>
-      <NextThemesProvider {...props}>
-        {!mounted && <Loading />}
-        {mounted && children}
-      </NextThemesProvider>
-    </QueryClientProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   )
 }
