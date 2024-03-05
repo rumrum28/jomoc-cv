@@ -3,7 +3,7 @@ import { Loader2 } from 'lucide-react'
 export default function Loading() {
   return (
     <div
-      className="flex min-h-screen min-w-full items-center justify-center z-50"
+      className="flex min-h-screen min-w-screen items-center justify-center z-50"
       style={{
         position: 'fixed',
         left: '50%',

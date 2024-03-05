@@ -1,30 +1,3 @@
-import {
-  mobile,
-  backend,
-  creator,
-  web,
-  javascript,
-  typescript,
-  html,
-  css,
-  reactjs,
-  redux,
-  tailwind,
-  nodejs,
-  mongodb,
-  git,
-  figma,
-  docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
-  threejs,
-} from '../public/assets'
-
 export const navLinks = [
   {
     id: 'about',
@@ -43,74 +16,74 @@ export const navLinks = [
 const services = [
   {
     title: 'Web Developer',
-    icon: web,
+    icon: '/assets/web.png',
   },
   {
     title: 'React Native Developer',
-    icon: mobile,
+    icon: '/assets/mobile.png',
   },
   {
     title: 'Backend Developer',
-    icon: backend,
+    icon: '/assets/backend.png',
   },
   {
     title: 'Content Creator',
-    icon: creator,
+    icon: '/assets/creator.png',
   },
 ]
 
 const technologies = [
   {
     name: 'HTML 5',
-    icon: html,
+    icon: '/assets/tech/html.png',
   },
   {
     name: 'CSS 3',
-    icon: css,
+    icon: '/assets/tech/css.png',
   },
   {
     name: 'JavaScript',
-    icon: javascript,
+    icon: '/assets/tech/javascript.png',
   },
   {
     name: 'TypeScript',
-    icon: typescript,
+    icon: '/assets/tech/typescript.png',
   },
   {
     name: 'React JS',
-    icon: reactjs,
+    icon: '/assets/tech/react.png',
   },
   {
     name: 'Redux Toolkit',
-    icon: redux,
+    icon: '/assets/tech/redux.png',
   },
   {
     name: 'Tailwind CSS',
-    icon: tailwind,
+    icon: '/assets/tech/tailwind.png',
   },
   {
     name: 'Node JS',
-    icon: nodejs,
+    icon: '/assets/tech/node.png',
   },
   {
     name: 'MongoDB',
-    icon: mongodb,
+    icon: '/assets/tech/mongodb.png',
   },
   {
     name: 'Three JS',
-    icon: threejs,
+    icon: '/assets/tech/three.svg',
   },
   {
     name: 'git',
-    icon: git,
+    icon: '/assets/tech/git.png',
   },
   {
     name: 'figma',
-    icon: figma,
+    icon: '/assets/tech/figma.png',
   },
   {
     name: 'docker',
-    icon: docker,
+    icon: '/assets/tech/docker.png',
   },
 ]
 
@@ -118,7 +91,7 @@ const experiences = [
   {
     title: 'React.js Developer',
     company_name: 'Starbucks',
-    icon: starbucks,
+    icon: '/assets/company/starbucks.png',
     iconBg: '#383E56',
     date: 'March 2020 - April 2021',
     points: [
@@ -131,7 +104,7 @@ const experiences = [
   {
     title: 'React Native Developer',
     company_name: 'Tesla',
-    icon: tesla,
+    icon: '/assets/company/tesla.png',
     iconBg: '#E6DEDD',
     date: 'Jan 2021 - Feb 2022',
     points: [
@@ -144,7 +117,7 @@ const experiences = [
   {
     title: 'Web Developer',
     company_name: 'Shopify',
-    icon: shopify,
+    icon: '/assets/company/shopify.png',
     iconBg: '#383E56',
     date: 'Jan 2022 - Jan 2023',
     points: [
@@ -157,7 +130,7 @@ const experiences = [
   {
     title: 'Full stack Developer',
     company_name: 'Meta',
-    icon: meta,
+    icon: '/assets/company/meta.png',
     iconBg: '#E6DEDD',
     date: 'Jan 2023 - Present',
     points: [
@@ -215,7 +188,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: carrent,
+    image: '/assets/carrent.png',
     source_code_link: 'https://github.com/',
   },
   {
@@ -236,7 +209,7 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: jobit,
+    image: '/assets/jobit.png',
     source_code_link: 'https://github.com/',
   },
   {
@@ -257,9 +230,72 @@ const projects = [
         color: 'pink-text-gradient',
       },
     ],
-    image: tripguide,
+    image: '/assets/tripguide.png',
     source_code_link: 'https://github.com/',
   },
 ]
 
 export { services, technologies, experiences, testimonials, projects }
+
+const products = [
+  {
+    id: 1,
+    name: '11kg LPG',
+    types: [
+      {
+        name: '11kg Content',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01u2v00000DHPasAAH',
+        product_id: '01t2v00000BYYa7AAH',
+        product_code: 'LPG11C',
+        unit_price: 1190,
+      },
+      {
+        name: '11kg Cylinder',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01u2j000000V4eYAAS',
+        product_id: '01t2j000000BeL8AAK',
+        product_code: 'CYL11',
+        unit_price: 1600,
+      },
+    ],
+  },
+  {
+    id: 2,
+    name: '2.7kg LPG',
+    types: [
+      {
+        name: '2.7kg Content',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01u2v00000EqISSAA3',
+        product_id: '01t2v00000CwlXPAAZ',
+        product_code: 'LPG2.7C',
+        unit_price: 350,
+      },
+      {
+        name: '2.7kg Cylinder',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01uBB000000qVMCYA2',
+        product_id: '01tBB0000014dQsYAI',
+        product_code: 'CYL2.7',
+        unit_price: 750,
+      },
+      {
+        name: '2.7kg Powerkalan Set',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01u2v00000EqIVBAA3',
+        product_id: '01t2v00000CwlcYAAR',
+        product_code: 'LPG2.7CCPK',
+        unit_price: 1200,
+      },
+      {
+        name: 'Power Kalan Burner',
+        pricebook_id: '01s2v00000LYBvGAAX',
+        pricebook_entry_id: '01uBB000000zOW5YAM',
+        product_id: '01tBB0000014dboYAA',
+        product_code: 'ACCPKB',
+        unit_price: 450,
+      },
+    ],
+  },
+]
