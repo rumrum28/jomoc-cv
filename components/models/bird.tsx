@@ -2,7 +2,7 @@ import { useAnimations, useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 import { useEffect, useRef } from 'react'
 
-export default function Bird({ isRotating }: { isRotating: boolean }) {
+export default function Bird() {
   const birdRef = useRef() as React.MutableRefObject<any>
   const { scene, animations } = useGLTF('/assets/3d/bird.glb')
   const { actions } = useAnimations(animations, birdRef) as any

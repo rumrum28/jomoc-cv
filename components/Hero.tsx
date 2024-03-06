@@ -8,6 +8,7 @@ import Sky from './models/sky'
 import Bird from './models/bird'
 import Plane from './models/plane'
 import HeroInfo from './heroInfo'
+import { Fox } from './models/fox'
 
 const adjustIslandForScreenSize = () => {
   let screenScale = null
@@ -74,7 +75,7 @@ const Hero = () => {
           />
 
           <Sky isRotating={isRotating} />
-          <Bird isRotating={isRotating} />
+          <Bird />
           <Plane
             isRotating={isRotating}
             planeScale={planeScale}

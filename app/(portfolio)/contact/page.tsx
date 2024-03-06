@@ -1,11 +1,13 @@
+import Contact from '@/components/Contact'
 import Navbar from '@/components/Navbar'
-import React from 'react'
 
 export default function page() {
   return (
     <>
       <Navbar />
-      contact
+      <section className="flex flex-col items-center justify-start h-[calc(100vh-76px)] mt-[76px] w-full max-w-7xl mx-auto">
+        <Contact />
+      </section>
     </>
   )
 }

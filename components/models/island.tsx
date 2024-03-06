@@ -116,50 +116,52 @@ export function Island({
   })
 
   return (
-    <a.group {...props} ref={islandRef}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface944_tree_body_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface945_tree1_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface946_tree2_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface947_tree1_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface948_tree_body_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.polySurface949_tree_body_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={(nodes.pCube11_rocks1_0 as THREE.Mesh).geometry}
-        material={materials.PaletteMaterial001}
-      />
-    </a.group>
+    <>
+      <a.group {...props} ref={islandRef}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface944_tree_body_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface945_tree1_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface946_tree2_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface947_tree1_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface948_tree_body_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.polySurface949_tree_body_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={(nodes.pCube11_rocks1_0 as THREE.Mesh).geometry}
+          material={materials.PaletteMaterial001}
+        />
+      </a.group>
+    </>
   )
 }
 

@@ -78,9 +78,6 @@ const config = {
       screens: {
         xs: '450px',
       },
-      backgroundImage: {
-        'hero-pattern': "url('/assets/herobg.png')",
-      },
     },
   },
   plugins: [require('tailwindcss-animate')],
