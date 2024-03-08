@@ -1,6 +1,6 @@
 'use client'
 
-import About from '@/components/About'
+import About from '@/components/aboutExperience'
 import Contact from '@/components/Contact'
 import Experience from '@/components/Experience'
 import Feedbacks from '@/components/Feedbacks'
@@ -13,7 +13,7 @@ import { StarsCanvas } from '@/components/canvas'
 export default function Portfolio() {
   return (
     <div className="relative z-0 bg-primary">
-      <Navbar />
+      <Navbar type="default" />
 
       <Hero />
       <About />

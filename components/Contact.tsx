@@ -17,6 +17,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
+import { useToast } from './ui/use-toast'
 
 const Contact = () => {
   const [currentAnimation, setCurrentAnimation] = useState<string>('')
@@ -27,6 +28,8 @@ const Contact = () => {
     message: '',
   })
   const [loading, setLoading] = useState<boolean>(false)
+  const { toast } = useToast()
+
   const handleChange = (e: any) => {
     setForm({ ...form, [e.target.id]: e.target.value })
   }
@@ -71,12 +74,22 @@ const Contact = () => {
     emailjs
       .send(emailjsServiceId, emailjsTemplateId, emailBody, emailjsUserId)
       .then((result) => {
+        console.log(result)
         if (result) {
-          console.log('Email sent successfully')
+          toast({
+            title: 'Email sent successfully',
+            description: 'I will get back to you as soon as possible.',
+            duration: 5000,
+          })
         }
       })
       .catch((error) => {
-        console.error('Failed to send email. Error: ', error)
+        toast({
+          title: 'Error',
+          description: error,
+          duration: 5000,
+          variant: 'destructive',
+        })
       })
       .finally(() => {
         setLoading(false)
@@ -90,128 +103,28 @@ const Contact = () => {
   }
 
   return (
-    <div className="flex items-start justify-start md:flex-row flex-col mt-5 w-full h-[512px]">
-      {/* <form
-        className="w-full md:min-w-[50%] max-w-lg border-2 border-slate-900 rounded p-4"
-        onSubmit={(e) => handleSubmit(e)}
-      >
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-first-name"
-            >
-              First Name
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              id="firstName"
-              type="text"
-              placeholder="Jane"
-              value={form.firstName}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              required
-            />
-          </div>
-          <div className="w-full md:w-1/2 px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-last-name"
-            >
-              Last Name
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              id="lastName"
-              type="text"
-              placeholder="Doe"
-              value={form.lastName}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              required
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-password"
-            >
-              E-mail
-            </label>
-            <input
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              id="email"
-              type="email"
-              placeholder="email"
-              value={form.email}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              required
-            />
-          </div>
-        </div>
-        <div className="flex flex-wrap -mx-3 mb-6">
-          <div className="w-full px-3">
-            <label
-              className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              htmlFor="grid-password"
-            >
-              Message
-            </label>
-            <textarea
-              className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-              id="message"
-              placeholder="Message"
-              value={form.message}
-              onChange={handleChange}
-              onFocus={handleFocus}
-              onBlur={handleBlur}
-              required
-            ></textarea>
-          </div>
-        </div>
-
-        <div className="md:flex md:items-center">
-          <div className="md:w-1/3">
-            <button
-              className="shadow bg-blue-500 hover:bg-blue-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? 'Sending...' : 'Send'}
-            </button>
-          </div>
-          <div className="md:w-2/3"></div>
-        </div>
-      </form> */}
-
+    <div className="flex items-start justify-start md:flex-row flex-col mt-5 w-full md:h-[512px] bg-white">
       <form
-        className="relative w-full md:min-w-[50%] rounded-xl h-full"
+        className="relative w-full md:min-w-[50%] rounded-xl"
         onSubmit={(e) => handleSubmit(e)}
       >
-        <Card className="border-slate-600 h-full">
-          <CardHeader className="h-auto">
-            <CardTitle>Create project</CardTitle>
+        <Card className="border-0">
+          <CardHeader className="">
+            <CardTitle>Get in touch</CardTitle>
             <CardDescription>
-              Deploy your new project in one-click.
+              Send me a message and I'll get back to you as soon as possible.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex flex-col items-center justify-center p-4 h-full">
+          <CardContent className="flex flex-col items-center justify-center p-4">
             <div className="w-full flex flex-col">
               <div className="flex flex-wrap -mx-3">
-                <div className="w-full md:w-1/2 px-3 md:mb-0">
+                <div className="w-1/2 pr-1 pl-3 md:mb-0">
                   <Label htmlFor="firstName">First Name</Label>
                   <Input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="firstName"
                     type="text"
-                    placeholder="Jane"
+                    placeholder="Firstname"
                     value={form.firstName}
                     onChange={handleChange}
                     onFocus={handleFocus}
@@ -219,13 +132,13 @@ const Contact = () => {
                     required
                   />
                 </div>
-                <div className="w-full md:w-1/2 px-3">
+                <div className="w-1/2 pl-1 pr-3">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="lastName"
                     type="text"
-                    placeholder="Doe"
+                    placeholder="Lastname"
                     value={form.lastName}
                     onChange={handleChange}
                     onFocus={handleFocus}
@@ -266,14 +179,6 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            <div className="md:flex md:items-center mt-6">
-              <div className="md:w-1/3">
-                <Button disabled={loading} variant="ghost">
-                  {loading ? 'Sending...' : 'Send'}
-                </Button>
-              </div>
-              <div className="md:w-2/3"></div>
-            </div>
           </CardContent>
           <CardFooter className="flex justify-between">
             <span></span>
@@ -284,22 +189,21 @@ const Contact = () => {
         </Card>
       </form>
 
-      <Canvas
-        camera={{ position: [0, 2, 5], fov: 50 }}
-        className="w-full h-auto border-2 border-slate-900 md:min-w-[50%] md:h-full rounded bg-slate-900"
-      >
-        <Suspense fallback={<Loader />}>
-          <directionalLight position={[0, 0, 1]} intensity={3} />
-          <ambientLight intensity={3.5} />
+      <div className="w-full h-full md:min-h-[426px]">
+        <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
+          <Suspense fallback={<Loader />}>
+            <directionalLight position={[0, 0, 1]} intensity={8} />
+            <ambientLight intensity={4.5} />
 
-          <Beetle
-            position={[0, -1, 0]}
-            rotation={[6, 4, 0]}
-            scale={[0.5, 0.5, 0.5]}
-            currentAnimation={currentAnimation}
-          />
-        </Suspense>
-      </Canvas>
+            <Beetle
+              position={[0, -1, 0]}
+              rotation={[6, 4, 0]}
+              scale={[0.5, 0.5, 0.5]}
+              currentAnimation={currentAnimation}
+            />
+          </Suspense>
+        </Canvas>
+      </div>
     </div>
   )
 }

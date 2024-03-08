@@ -8,7 +8,6 @@ import Sky from './models/sky'
 import Bird from './models/bird'
 import Plane from './models/plane'
 import HeroInfo from './heroInfo'
-import { Fox } from './models/fox'
 
 const adjustIslandForScreenSize = () => {
   let screenScale = null

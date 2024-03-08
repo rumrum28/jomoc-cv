@@ -10,7 +10,7 @@ const InfoBox = ({
   link: string
   buttonText: string
 }) => (
-  <div className="relative p-5 max-w-96 bg-blue-500 rounded border-b-4 border-r-4 border-blue-800 flex items-center justify-center flex-col">
+  <div className="relative p-4 md:p-5 mx-2 max-w-96 text-white bg-blue-500 rounded border-b-4 border-r-4 border-blue-800 flex items-center justify-center flex-col">
     <p className="font-medium sm:text-xl text-center mb-3">{text}</p>
     <Link
       href={link}

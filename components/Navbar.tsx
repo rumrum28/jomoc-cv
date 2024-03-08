@@ -13,11 +13,15 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 
-const Navbar = () => {
+const Navbar = ({ type }: { type: string }) => {
   const [active, setActive] = useState<string>('')
 
   return (
-    <nav className="sm:px-16 px-6 w-full flex items-center py-5 fixed top-0 z-20 bg-primary">
+    <nav
+      className={`sm:px-16 px-6 w-full flex items-center py-5 z-20 bg-primary ${
+        type === 'non-sticky' ? '' : 'fixed top-0'
+      }`}
+    >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
           className="flex items-center gap-2"
