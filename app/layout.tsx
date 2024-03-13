@@ -17,10 +17,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${inter.className} dark:bg-slate-800`}>
         <Toaster />
-        <Providers>{children}</Providers>
+        <Providers
+          attribute="class"
+          defaultTheme="light"
+          disableTransitionOnChange
+        >
+          {children}
+        </Providers>
       </body>
     </html>
   )

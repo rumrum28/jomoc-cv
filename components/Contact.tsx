@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useRef, useState } from 'react'
+import { Suspense, useEffect, useRef, useState } from 'react'
 import Loader from './Loader'
 import { Beetle } from './models/beetle'
 import emailjs from '@emailjs/browser'
@@ -36,6 +36,7 @@ const Contact = () => {
 
   const timeoutFocus = useRef<number>()
   const timeoutBlur = useRef<number>()
+
   const handleFocus = (e: any) => {
     clearTimeout(timeoutBlur.current)
     setCurrentAnimation('AS_BlackOxBeetle_Sleep_End_01_SK_BlackOxBeetle01')
@@ -103,25 +104,26 @@ const Contact = () => {
   }
 
   return (
-    <div className="flex items-start justify-start md:flex-row flex-col mt-5 w-full md:h-[512px] bg-white">
+    <div className="relative flex items-center justify-start md:flex-row flex-col w-full min-h-[calc(100vh-160px)] bg-white dark:bg-transparent z-0">
       <form
-        className="relative w-full md:min-w-[50%] rounded-xl"
+        className={`relative w-full md:min-w-[50%] ml-[15%] z-20 max-w-[640px] h-full`}
         onSubmit={(e) => handleSubmit(e)}
       >
         <Card className="border-0">
-          <CardHeader className="">
-            <CardTitle>Get in touch</CardTitle>
+          <CardHeader>
+            <CardTitle className="text-3xl my-3">Get in touch</CardTitle>
             <CardDescription>
               Send me a message and I'll get back to you as soon as possible.
+              <span>(Beware of the beetle!)</span>
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-col items-center justify-center p-4">
-            <div className="w-full flex flex-col">
+            <div className="w-full flex flex-col gap-5">
               <div className="flex flex-wrap -mx-3">
                 <div className="w-1/2 pr-1 pl-3 md:mb-0">
                   <Label htmlFor="firstName">First Name</Label>
                   <Input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border mt-3 border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="firstName"
                     type="text"
                     placeholder="Firstname"
@@ -135,7 +137,7 @@ const Contact = () => {
                 <div className="w-1/2 pl-1 pr-3">
                   <Label htmlFor="lastName">Last Name</Label>
                   <Input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border mt-3 border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="lastName"
                     type="text"
                     placeholder="Lastname"
@@ -151,7 +153,7 @@ const Contact = () => {
                 <div className="w-full px-3">
                   <Label htmlFor="email">E-mail</Label>
                   <Input
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mt-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="email"
                     type="email"
                     placeholder="email"
@@ -167,7 +169,7 @@ const Contact = () => {
                 <div className="w-full px-3">
                   <Label htmlFor="message">Message</Label>
                   <Textarea
-                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                    className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mt-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="message"
                     placeholder="Message"
                     value={form.message}
@@ -180,7 +182,7 @@ const Contact = () => {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex justify-between">
+          <CardFooter className="flex justify-between mt-5">
             <span></span>
             <Button disabled={loading} variant="outline">
               {loading ? 'Sending...' : 'Send'}
@@ -189,7 +191,7 @@ const Contact = () => {
         </Card>
       </form>
 
-      <div className="w-full h-full md:min-h-[426px]">
+      <div className="w-full max-w-[640px] h-full md:min-h-[426px] z-10 absolute right-7">
         <Canvas camera={{ position: [0, 2, 5], fov: 50 }}>
           <Suspense fallback={<Loader />}>
             <directionalLight position={[0, 0, 1]} intensity={8} />

@@ -1,7 +1,6 @@
 'use client'
 
 import { navLinks } from '@/constants'
-import Image from 'next/image'
 import Link from 'next/link'
 import { useState } from 'react'
 import {
@@ -12,15 +11,21 @@ import {
   SheetTitle,
   SheetTrigger,
 } from '@/components/ui/sheet'
+import { BarChart2 } from 'lucide-react'
+import Logo from './logo'
 
 const Navbar = ({ type }: { type: string }) => {
   const [active, setActive] = useState<string>('')
+  const urlParam = new URLSearchParams(
+    typeof window !== 'undefined' ? window.location.search : ''
+  )
+  const id = urlParam.get('id')
 
   return (
     <nav
-      className={`sm:px-16 px-6 w-full flex items-center py-5 z-20 bg-primary ${
+      className={`sm:px-16 px-6 w-full flex items-center py-5 z-50 bg-slate-100 dark:bg-slate-900 ${
         type === 'non-sticky' ? '' : 'fixed top-0'
-      }`}
+      } bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-md dark:bg-opacity-30`}
     >
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto">
         <Link
@@ -31,34 +36,22 @@ const Navbar = ({ type }: { type: string }) => {
             typeof window !== 'undefined' && window.scrollTo(0, 0)
           }}
         >
-          <Image
-            src="/assets/logo/png/logo-no-background.png"
-            alt="logo"
-            className="w-9 h-9 object-contain bg-white rounded-lg"
-            width={36}
-            height={36}
-          />
-          <p className="text-white text-[18px] font-bold cursor-pointer sm:block hidden">
-            Jomoc <span>| Portfolio</span>
-          </p>
+          <Logo />
         </Link>
 
         <ul className="list-none hidden sm:flex flex-row gap-10 h-6">
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className={
-                active === link.title
-                  ? 'text-white border-b-2 border-white'
-                  : 'text-secondary hover:text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-b-2 hover:border-white'
-              }
+              className={`text-slate-800 dark:text-slate-300 text-secondary hover:text-black dark:hover:text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-b-2 border-black dark:hover:border-white`}
             >
               <Link
-                href={`/${link.id}`}
+                href={`/${link.id}?id=${link.id}`}
                 onClick={() => {
-                  setActive(link.id)
+                  setActive(id)
                   typeof window !== 'undefined' && window.scrollTo(0, 0)
                 }}
+                className="w-full"
               >
                 {link.title}
               </Link>
@@ -69,13 +62,7 @@ const Navbar = ({ type }: { type: string }) => {
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <Sheet>
             <SheetTrigger>
-              <Image
-                src="/assets/menu.svg"
-                alt="menu"
-                className="w-6 h-6 object-contain cursor-pointer"
-                width={24}
-                height={24}
-              />
+              <BarChart2 size={28} className="-rotate-90 " />
             </SheetTrigger>
             <SheetContent className="bg-white text-black dark:bg-black dark:text-white">
               <SheetHeader>

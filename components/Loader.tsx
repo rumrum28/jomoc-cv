@@ -1,19 +1,12 @@
 import { Html } from '@react-three/drei'
 
 const Loader = () => {
+  //make a dreie loader component with tailwindcss
   return (
-    <Html
-      center
-      prepend
-      style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <div className="w-20 h-20 border-4 border-orange-600 border-t-orange-950 rounded-full animate-spin"></div>
+    <Html>
+      <div className="absolute w-40 h-40 top-0 left-0 right-0 bottom-0 flex items-center justify-center -translate-x-1/2 -translate-y-1/2">
+        <div className="w-40 h-40 border-8 border-blue-100 border-t-blue-500 rounded-full animate-spin" />
+      </div>
     </Html>
   )
 }

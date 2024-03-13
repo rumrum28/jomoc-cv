@@ -8,7 +8,7 @@ function CTA() {
   const router = useRouter()
 
   return (
-    <div className="mt-12 flex items-center justify-center flex-col md:flex-row">
+    <div className="my-12 flex items-center justify-center flex-col md:flex-row">
       <p className="text-2xl">Have a project in mind?</p>
 
       <Button
