@@ -107,7 +107,7 @@ const Contact = () => {
   return (
     <div className="relative flex items-center justify-start md:flex-row flex-col w-full min-h-[calc(100vh-76px)] z-0 text-primaryBrown dark:text-lightBrown">
       <form
-        className={`relative w-full md:min-w-[50%] ml-[15%] z-20 max-w-[640px] h-full`}
+        className={`relative flex items-center justify-center w-full md:min-w-[50%] ml-[15%] z-20 max-w-[640px] h-full`}
         onSubmit={(e) => handleSubmit(e)}
       >
         <Card className="border-0">

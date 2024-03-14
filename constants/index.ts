@@ -1,7 +1,8 @@
 type SkillProps = {
   imageUrl: string
-  name: string
+  title: string
   type: string
+  level: number
 }
 
 type ExperienceProps = {
@@ -31,83 +32,132 @@ export const navLinks = [
 export const skills: SkillProps[] = [
   {
     imageUrl: '/assets/tech/css.png',
-    name: 'CSS',
+    title: 'CSS',
     type: 'Frontend',
+    level: 90,
   },
   {
     imageUrl: '/assets/icons/express.svg',
-    name: 'Express',
+    title: 'Express',
     type: 'Backend',
+    level: 80,
   },
   {
     imageUrl: '/assets/tech/git.png',
-    name: 'Git',
+    title: 'Git',
     type: 'Version Control',
+    level: 60,
   },
   {
     imageUrl: '/assets/icons/github.svg',
-    name: 'GitHub',
+    title: 'GitHub',
     type: 'Version Control',
+    level: 60,
   },
   {
     imageUrl: '/assets/tech/html.png',
-    name: 'HTML',
+    title: 'HTML',
     type: 'Frontend',
+    level: 95,
   },
   {
     imageUrl: '/assets/tech/javascript.png',
-    name: 'JavaScript',
+    title: 'JavaScript',
     type: 'Frontend',
+    level: 90,
   },
   {
     imageUrl: '/assets/tech/mongodb.png',
-    name: 'MongoDB',
+    title: 'MongoDB',
     type: 'Database',
-  },
-  {
-    imageUrl: '/assets/icons/motion.svg',
-    name: 'Motion',
-    type: 'Animation',
+    level: 70,
   },
   {
     imageUrl: '/assets/icons/mui.svg',
-    name: 'Material-UI',
+    title: 'Material-UI',
     type: 'Frontend',
+    level: 90,
   },
   {
     imageUrl: '/assets/icons/nextjs.svg',
-    name: 'Next.js',
+    title: 'Next.js',
     type: 'Frontend',
+    level: 85,
   },
   {
     imageUrl: '/assets/tech/nodejs.png',
-    name: 'Node.js',
+    title: 'Node.js',
     type: 'Backend',
+    level: 80,
   },
   {
     imageUrl: '/assets/tech/reactjs.png',
-    name: 'React',
+    title: 'React',
     type: 'Frontend',
+    level: 90,
   },
   {
     imageUrl: '/assets/tech/redux.png',
-    name: 'Redux',
+    title: 'Redux',
     type: 'State Management',
+    level: 85,
   },
   {
     imageUrl: '/assets/icons/sass.svg',
-    name: 'Sass',
+    title: 'Sass',
     type: 'Frontend',
+    level: 90,
   },
   {
     imageUrl: '/assets/tech/tailwind.png',
-    name: 'Tailwind CSS',
+    title: 'Tailwind CSS',
     type: 'Frontend',
+    level: 95,
   },
   {
     imageUrl: '/assets/tech/typescript.png',
-    name: 'TypeScript',
+    title: 'TypeScript',
     type: 'Frontend',
+    level: 80,
+  },
+]
+
+export const skillsShort: SkillProps[] = [
+  {
+    imageUrl: '/assets/tech/html.png',
+    title: 'HTML',
+    type: 'Frontend',
+    level: 95,
+  },
+  {
+    imageUrl: '/assets/tech/css.png',
+    title: 'CSS/Tailwind',
+    type: 'Frontend',
+    level: 90,
+  },
+  {
+    imageUrl: '/assets/tech/javascript.png',
+    title: 'JavaScript',
+    type: 'Frontend',
+    level: 90,
+  },
+  {
+    imageUrl: '/assets/tech/nodejs.png',
+    title: 'Node.js',
+    type: 'Backend',
+    level: 80,
+  },
+  {
+    imageUrl: '/assets/tech/reactjs.png',
+    title: 'React/React Native/Next.js',
+    type: 'Frontend',
+    level: 90,
+  },
+  {
+    imageUrl: '/assets/icons/php.svg',
+    title: 'Php',
+    type: 'Frontend',
+    level: 90,
   },
 ]
 
@@ -333,5 +383,24 @@ export const projects = [
     description:
       'App that leverages AI to automatically generate concise & informative summaries from lengthy text content, or blogs.',
     link: 'https://github.com/adrianhajdin/project_ai_summarizer',
+  },
+]
+
+export const languages = [
+  {
+    name: 'English',
+    level: 85,
+  },
+  {
+    name: 'Tagalog',
+    level: 90,
+  },
+  {
+    name: 'Bisaya',
+    level: 100,
+  },
+  {
+    name: 'Waray',
+    level: 70,
   },
 ]
