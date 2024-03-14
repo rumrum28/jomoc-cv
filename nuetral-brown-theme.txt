@@ -1,0 +1,6 @@
+- brown theme -
+lightBrown:#f3e3d3
+skinLightBrown:#efcead
+brown:#9b6b43
+skinDarkBrown:#8e5431
+darkBrown:#744c24

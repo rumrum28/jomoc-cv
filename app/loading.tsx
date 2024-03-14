@@ -11,7 +11,7 @@ export default function Loading() {
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <Loader2 className="w-16 h-16 dark:text-white text-gray-900 animate-spin" />
+      <Loader2 className="w-16 h-16 dark:text-lightBrown text-darkBrown animate-spin" />
     </div>
   )
 }

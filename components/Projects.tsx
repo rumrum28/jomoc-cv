@@ -8,9 +8,11 @@ import CTA from './cta'
 const Projects = () => {
   return (
     <section className="max-container max-w-7xl mx-auto p-4 mt-20">
-      <h1 className="text-2xl font-bold whitespace-nowrap">My Projects</h1>
+      <h1 className="text-2xl font-bold whitespace-nowrap text-darkBrown dark:text-lightBrown">
+        My Projects
+      </h1>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500 dark:text-slate-100">
+      <div className="mt-5 flex flex-col gap-3 text-primaryBrown dark:text-lightBrown">
         <p>
           I have been working with vanillaJs, Node.js and Express for the
           backend, and React and Next.js for the frontend. I also have
@@ -35,8 +37,10 @@ const Projects = () => {
             </div>
 
             <div className="mt-5 flex flex-col">
-              <h4 className="text-2xl font-semibold">{project.name}</h4>
-              <p className="mt-2 text-slate-500 dark:text-slate-100">
+              <h4 className="text-2xl font-semibold text-darkBrown dark:text-lightBrown">
+                {project.name}
+              </h4>
+              <p className="mt-2 text-primaryBrown dark:text-lightBrown">
                 {project.description}
               </p>
               <div className="mt-5 flex items-center gap-2">
@@ -44,11 +48,14 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noeferrer"
-                  className="font-semibold text-blue-600"
+                  className="font-semibold text-darkBrown dark:text-lightBrown"
                 >
                   View Project
                 </Link>
-                <ArrowRight size={24} className="inline ml-2" />
+                <ArrowRight
+                  size={24}
+                  className="inline ml-2 text-darkBrown dark:text-lightBrown"
+                />
               </div>
             </div>
           </div>

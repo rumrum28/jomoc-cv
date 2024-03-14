@@ -23,7 +23,7 @@ export default function Logo() {
               transform="matrix(1,0,0,1,0,0)"
               data-fill-palette-color="primary"
               id="text-0"
-              className="fill-dark dark:fill-white"
+              className="fill-darkBrown dark:fill-lightBrown"
             ></path>
           </svg>
         </g>
@@ -32,14 +32,14 @@ export default function Logo() {
           d="M306.022 41.215L306.022 0 58.822 0 58.822 247.2 306.022 247.2 306.022 205.985 295.995 205.985 295.995 237.173 68.85 237.173 68.85 10.027 295.995 10.027 295.995 41.215Z"
           stroke="transparent"
           data-fill-palette-color="tertiary"
-          className="fill-dark dark:fill-white"
+          className="fill-darkBrown dark:fill-lightBrown"
         ></path>
       </svg>
 
       <p
-        className={`${vt323.className} text-2xl font-thin cursor-pointer sm:block hidden`}
+        className={`${vt323.className} text-2xl font-thin cursor-pointer sm:block hidden text-primaryBrown dark:text-lightBrown`}
       >
-        JOHN <span className={vt323.className}>| JOMOC</span>
+        JE<span className={vt323.className}>|JOMOC</span>
       </p>
     </>
   )

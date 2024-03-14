@@ -3,12 +3,12 @@ import Experience from './Experience'
 
 const About = () => {
   return (
-    <section className="max-container max-w-7xl mx-auto p-4 mt-20">
+    <section className="max-container max-w-7xl mx-auto p-4 mt-20 text-primaryBrown dark:text-lightBrown">
       <h1 className="text-2xl font-bold whitespace-nowrap">
         Hello, I'm JOHN JOMOC
       </h1>
 
-      <div className="mt-5 flex flex-col gap-3 text-slate-500 dark:text-slate-100">
+      <div className="mt-5 flex flex-col gap-3 text-darkBrown dark:text-lightBrown">
         <p>
           I'm a full-stack developer and designer. I love to build and design
           things that are useful and beautiful. I'm passionate about creating

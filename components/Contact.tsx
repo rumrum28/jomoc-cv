@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas } from '@react-three/fiber'
-import { Suspense, useEffect, useRef, useState } from 'react'
+import { Suspense, useRef, useState } from 'react'
 import Loader from './Loader'
 import { Beetle } from './models/beetle'
 import emailjs from '@emailjs/browser'
@@ -18,24 +18,25 @@ import { Label } from '@/components/ui/label'
 import { Button } from './ui/button'
 import { Textarea } from './ui/textarea'
 import { useToast } from './ui/use-toast'
+import useZustand from '@/utils/zustand'
 
 const Contact = () => {
-  const [currentAnimation, setCurrentAnimation] = useState<string>('')
-  const [form, setForm] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    message: '',
-  })
+  const [currentAnimation, setCurrentAnimation] = useState<string>('') //force useState for animation render
+
+  const { contactForm, setContactForm } = useZustand((set) => ({
+    contactForm: set.contactForm,
+    setContactForm: set.setContactForm,
+  }))
+
   const [loading, setLoading] = useState<boolean>(false)
   const { toast } = useToast()
-
-  const handleChange = (e: any) => {
-    setForm({ ...form, [e.target.id]: e.target.value })
-  }
-
   const timeoutFocus = useRef<number>()
   const timeoutBlur = useRef<number>()
+
+  const handleChange = (e: any) => {
+    let formValidation = { ...contactForm, [e.target.id]: e.target.value }
+    setContactForm(formValidation)
+  }
 
   const handleFocus = (e: any) => {
     clearTimeout(timeoutBlur.current)
@@ -63,11 +64,11 @@ const Contact = () => {
     const emailjsServiceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || ''
     const emailjsTemplateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || ''
     const emailBody = {
-      from_name: `${form.firstName} ${form.lastName}`,
+      from_name: `${contactForm.firstName} ${contactForm.lastName}`,
       to_name: 'John Eric',
-      from_email: form.email,
+      from_email: contactForm.email,
       to_email: 'murrumrum@gmail.com',
-      message: `${form.message}, sent from ${form.email}`,
+      message: `${contactForm.message}, sent from ${contactForm.email}`,
     }
     const emailjsUserId =
       process.env.NEXT_PUBLIC_EMAILJS_ACCOUNT_PUBLIC_KEY || ''
@@ -94,7 +95,7 @@ const Contact = () => {
       })
       .finally(() => {
         setLoading(false)
-        setForm({
+        setContactForm({
           firstName: '',
           lastName: '',
           email: '',
@@ -104,7 +105,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="relative flex items-center justify-start md:flex-row flex-col w-full min-h-[calc(100vh-160px)] bg-white dark:bg-transparent z-0">
+    <div className="relative flex items-center justify-start md:flex-row flex-col w-full min-h-[calc(100vh-76px)] z-0 text-primaryBrown dark:text-lightBrown">
       <form
         className={`relative w-full md:min-w-[50%] ml-[15%] z-20 max-w-[640px] h-full`}
         onSubmit={(e) => handleSubmit(e)}
@@ -127,7 +128,7 @@ const Contact = () => {
                     id="firstName"
                     type="text"
                     placeholder="Firstname"
-                    value={form.firstName}
+                    value={contactForm.firstName}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -141,7 +142,7 @@ const Contact = () => {
                     id="lastName"
                     type="text"
                     placeholder="Lastname"
-                    value={form.lastName}
+                    value={contactForm.lastName}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -157,7 +158,7 @@ const Contact = () => {
                     id="email"
                     type="email"
                     placeholder="email"
-                    value={form.email}
+                    value={contactForm.email}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}
@@ -172,7 +173,7 @@ const Contact = () => {
                     className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 mt-3 px-4 leading-tight focus:outline-none focus:bg-white"
                     id="message"
                     placeholder="Message"
-                    value={form.message}
+                    value={contactForm.message}
                     onChange={handleChange}
                     onFocus={handleFocus}
                     onBlur={handleBlur}

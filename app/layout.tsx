@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} dark:bg-slate-800`}>
+      <body className={`${inter.className} dark:bg-orange-950`}>
         <Toaster />
         <Providers
           attribute="class"

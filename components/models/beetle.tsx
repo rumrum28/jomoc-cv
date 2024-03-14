@@ -80,9 +80,6 @@ export function Beetle({ currentAnimation, ...props }: any) {
   }
 
   useEffect(() => {
-    // console.log(actions)
-    // actions['AS_BlackOxBeetle_Run_Backward_01_SK_BlackOxBeetle01'].play()
-
     Object.values(actions).forEach((action: THREE.AnimationAction) =>
       action.stop()
     )

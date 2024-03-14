@@ -19,6 +19,11 @@ const config = {
     },
     extend: {
       colors: {
+        lightBrown: '#f3e3d3',
+        skinLightBrown: '#efcead',
+        primaryBrown: '#9b6b43',
+        skinDarkBrown: '#8e5431',
+        darkBrown: '#744c24',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

@@ -3,7 +3,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { ThemeProviderProps } from 'next-themes/dist/types'
-import { useEffect, useState } from 'react'
+// import { useEffect, useState } from 'react'
 
 function makeQueryClient() {
   return new QueryClient({
@@ -28,15 +28,15 @@ function getQueryClient() {
 
 export default function Providers({ children, ...props }: ThemeProviderProps) {
   const queryClient = getQueryClient()
-  const [mounted, setMounted] = useState(false)
+  // const [mounted, setMounted] = useState(false)
 
-  useEffect(() => {
-    setMounted(true)
-  }, [setMounted])
+  // useEffect(() => {
+  //   setMounted(true)
+  // }, [setMounted])
 
   return (
     <QueryClientProvider client={queryClient}>
-      <NextThemesProvider {...props}>{mounted && children}</NextThemesProvider>
+      <NextThemesProvider {...props}>{children}</NextThemesProvider>
     </QueryClientProvider>
   )
 }

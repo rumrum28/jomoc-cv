@@ -2,7 +2,6 @@
 
 import { navLinks } from '@/constants'
 import Link from 'next/link'
-import { useState } from 'react'
 import {
   Sheet,
   SheetContent,
@@ -13,17 +12,14 @@ import {
 } from '@/components/ui/sheet'
 import { BarChart2 } from 'lucide-react'
 import Logo from './logo'
+import { Switch } from './ui/switch'
+import { Label } from './ui/label'
+import ThemeSwitcher from './themeSwitcher'
 
 const Navbar = ({ type }: { type: string }) => {
-  const [active, setActive] = useState<string>('')
-  const urlParam = new URLSearchParams(
-    typeof window !== 'undefined' ? window.location.search : ''
-  )
-  const id = urlParam.get('id')
-
   return (
     <nav
-      className={`sm:px-16 px-6 w-full flex items-center py-5 z-50 bg-slate-100 dark:bg-slate-900 ${
+      className={`sm:px-16 px-6 w-full flex items-center py-5 z-50 bg-lightBrown dark:bg-darkBrown ${
         type === 'non-sticky' ? '' : 'fixed top-0'
       } bg-opacity-10 backdrop-filter backdrop-blur-lg shadow-md dark:bg-opacity-30`}
     >
@@ -31,32 +27,31 @@ const Navbar = ({ type }: { type: string }) => {
         <Link
           className="flex items-center gap-2"
           href="/portfolio"
-          onClick={() => {
-            setActive('')
-            typeof window !== 'undefined' && window.scrollTo(0, 0)
-          }}
+          onClick={() => typeof window !== 'undefined' && window.scrollTo(0, 0)}
         >
           <Logo />
         </Link>
 
-        <ul className="list-none hidden sm:flex flex-row gap-10 h-6">
+        <ul className="list-none hidden sm:flex flex-row gap-10 h-6 items-center justify-center">
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className={`text-slate-800 dark:text-slate-300 text-secondary hover:text-black dark:hover:text-white cursor-pointer transition-all duration-300 ease-in-out hover:border-b-2 border-black dark:hover:border-white`}
+              className={`text-primaryBrown dark:text-lightBrown hover:text-darkBrown dark:hover:text-primaryBrown cursor-pointer `}
             >
               <Link
-                href={`/${link.id}?id=${link.id}`}
-                onClick={() => {
-                  setActive(id)
+                href={`/${link.id}`}
+                onClick={() =>
                   typeof window !== 'undefined' && window.scrollTo(0, 0)
-                }}
+                }
                 className="w-full"
               >
                 {link.title}
               </Link>
             </li>
           ))}
+          <li>
+            <ThemeSwitcher />
+          </li>
         </ul>
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
@@ -64,7 +59,7 @@ const Navbar = ({ type }: { type: string }) => {
             <SheetTrigger>
               <BarChart2 size={28} className="-rotate-90 " />
             </SheetTrigger>
-            <SheetContent className="bg-white text-black dark:bg-black dark:text-white">
+            <SheetContent className="bg-lightBrown text-darkBrown dark:bg-darkBrown dark:text-lightBrown">
               <SheetHeader>
                 <SheetTitle>Are you absolutely sure?</SheetTitle>
                 <SheetDescription>
